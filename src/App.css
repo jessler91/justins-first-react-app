@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  border: medium dashed green;
+  font-size: 15px;
+}
+
+
+p {
+  border: medium dashed blue;
+  font-size: 30px;
+}
+
+.three-lists {
+  display: flex;
+  flex-direction: row;
+}
+
+.sub-list {
+  margin:5px;
+}

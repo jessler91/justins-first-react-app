@@ -15,10 +15,11 @@ class App extends React.Component {
 
     this.state = {
       // isOn: false,
+      isClicked: false,
       input: '',
       items: [],
       hw_assignments: [],
-      honeyDo_list: []
+      honeyDo_list: [],
     };
   }
 
@@ -27,12 +28,12 @@ class App extends React.Component {
   inputUpdatItems = (event) => {
     this.setState({input: event.target.value})
   }
-  inputUpdateAssignments = (event) => {
-    this.setState({input: event.target.value})
-  }
-  inputUpdateHoneyDo = (event) => {
-    this.setState({input: event.target.value})
-  }
+  // inputUpdateAssignments = (event) => {
+  //   this.setState({input: event.target.value})
+  // }
+  // inputUpdateHoneyDo = (event) => {
+  //   this.setState({input: event.target.value})
+  // }
 
   formSubmitItems = (event) => {
     // Use event.prevent the browser from refreshing the entire page and clearing of state 
@@ -43,25 +44,26 @@ class App extends React.Component {
     })
   }
 
-  formSubmitAssignments = (event) => {
-    event.preventDefault()
-    this.setState({
-      hw_assignments : [...this.state.hw_assignments, this.state.input],
-      input: ''
-    })
-  }
-
-  formSubmitHoneyDo = (event) => { 
-    event.preventDefault()
-    this.setState({
-      honeyDo_list : [...this.state.honeyDo_list, this.state.input],
-      input: ''
-    })
-  }
-
-  // toggle = () => {
-  //   this.setState({isOn: !this.state.isOn})
+  // formSubmitAssignments = (event) => {
+  //   event.preventDefault()
+  //   this.setState({
+  //     hw_assignments : [...this.state.hw_assignments, this.state.input],
+  //     input: ''
+  //   })
   // }
+
+  // formSubmitHoneyDo = (event) => { 
+  //   event.preventDefault()
+  //   this.setState({
+  //     honeyDo_list : [...this.state.honeyDo_list, this.state.input],
+  //     input: ''
+  //   })
+  // }
+
+  toggle = (event) => {
+    event.preventDefault()
+    this.setState({isClicked: !this.state.isClicked})
+  }
 
   // End on Methods
 
@@ -84,6 +86,7 @@ class App extends React.Component {
 
         <div class="three-lists">
           <div class="sub-list">
+          <h1>Justin Personals ToDo List</h1>
             <form onSubmit={this.formSubmitItems}>
               <input value={this.state.input} onChange={this.inputUpdatItems}/>
               <button>Submit</button>
@@ -95,29 +98,23 @@ class App extends React.Component {
             <FirstComponent items={this.state.items}/>
           </div>
 
-          <div class="sub-list">
+          {/* <div class="sub-list">
+          <h1>Justin Homework Assignments List</h1>
             <form onSubmit={this.formSubmitAssignments}>
               <input value={this.state.input} onChange={this.inputUpdateAssignments}/>
               <button>Submit</button>
             </form>
-            {/* We use the Map function so that we can itemize the index of eact item and store a reference */}
-            {/* <ul>{this.state.items.map((item, index) => {
-              return <li key={index}>{this.state.items[index]}</li>
-            })}</ul> */}
             <FirstComponent items={this.state.hw_assignments}/>
           </div>
 
           <div class="sub-list">
+          <h1>Justin Honey-Do List</h1>
             <form onSubmit={this.formSubmitHoneyDo}>
               <input value={this.state.input} onChange={this.inputUpdateHoneyDo}/>
               <button>Submit</button>
             </form>
-            {/* We use the Map function so that we can itemize the index of eact item and store a reference */}
-            {/* <ul>{this.state.items.map((item, index) => {
-              return <li key={index}>{this.state.items[index]}</li>
-            })}</ul> */}
             <FirstComponent items={this.state.honeyDo_list}/>
-          </div>
+          </div> */}
 
         </div>
 

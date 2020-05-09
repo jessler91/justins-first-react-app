@@ -6,12 +6,26 @@ import React from 'react';
 // All component functions should be capilitized
 function FirstComponent(props) {
     console.log("this is first component props", props.items);
+
+
+    toggle = (event) => {
+        event.preventDefault()
+        this.setState({isClicked: !props.isClicked})
+      }
+
+
     return (
         <div>
-            <h1>This is our listing component</h1>
+            <h2>Sumbitted Lists</h2>
             <ul>
                 {props.items.map((item, index) => {
-                    return <li key={index}>{props.items[index]}</li>
+                    return <li key={index}>
+                        {props.items[index]} 
+                        <button 
+                        onClick={this.state.toggle()}>
+                        {props.isClicked}
+                        </button>
+                    </li>
                 })}
             </ul>
         </div>
